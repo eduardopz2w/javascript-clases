@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>toogable</title>
+</head>
+<body>
+<button id="button">Off</button>
+<script type="text/javascript">
+	class Toogable {
+		constructor(el) {
+			this.el = el
+			this.el.innerHTML = 'Off'
+			this.activated = false
+			this.onClick = this.onClick.bind(this) // para que tenga este this y  no el de el boton
+			this.el.addEventListener('click', this.onClick)
+
+		}
+
+		onClick(ev) {
+			this.activated = !this.activated
+			this.toogleText()
+
+		}
+
+		toogleText() {
+			this.el.innerHTML = this.activated ? 'On' : 'Off'
+
+		}
+	}
+	const button = document.getElementById('button')
+	const myButton = new Toogable(button)
+</script>
+</body>
+</html>

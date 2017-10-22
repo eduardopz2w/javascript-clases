@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1 id="timer">Han pasado 0 segundos</h1>
+	<button id="cancel-button">button</button>
+	<script>
+		const timer = document.getElementById('timer')
+		const cancelButton = document.getElementById('cancel-button')
+
+		let counter = 0
+		let second = 'segundo'
+
+		const interval = setInterval(() => {
+			counter++
+
+			if (second == 'segundo' && counter > 1) {
+				second += 's'
+			}
+			timer.textContent = 'han pasado ' + counter + ' ' +second
+		}, 1000)
+
+
+		cancelButton.addEventListener('click', () => {
+		  clearInterval(interval)	
+		})
+
+	</script>
+
+</body>
+</html>
